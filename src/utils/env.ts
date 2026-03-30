@@ -1,0 +1,1 @@
+export const DATABASE_URL = "mongodb+srv://wpucourse:wpucourse@cluster-wpu-course.4oad2ng.mongodb.net/?appName=cluster-wpu-course";
