@@ -1,4 +1,6 @@
-import mongoose, { SchemaType } from "mongoose";
+import mongoose from "mongoose";
+import { encrypt } from "../utils/encryption";
+
 
 export interface User {
     fullName: string;
@@ -13,7 +15,7 @@ export interface User {
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema<User>(   
+const UserSchema = new Schema<User>(   
     {
         fullName: {
             type: Schema.Types.String,
@@ -49,6 +51,14 @@ const userSchema = new Schema<User>(
     }
 );
 
-const UserModel = mongoose.model<User>("User", userSchema);
+UserSchema.pre("save", function (next) {
+
+    const user = this;
+    user.password = encrypt(user.password);
+    next();
+
+});
+
+const UserModel = mongoose.model<User>("User", UserSchema);
 
 export default UserModel;
