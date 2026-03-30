@@ -1,1 +1,5 @@
-export const DATABASE_URL = "mongodb+srv://wpucourse:wpucourse@cluster-wpu-course.4oad2ng.mongodb.net/?appName=cluster-wpu-course";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export const DATABASE_URL: string = process.env.DATABASE_URL || "";
