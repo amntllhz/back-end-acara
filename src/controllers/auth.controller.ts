@@ -20,10 +20,12 @@ const registerValidateSchema = Yup.object({
 
 export default {
     async register (req: Request, res: Response) {
+        
         const { fullName, username, email, password, confirmPassword } = 
         req.body as unknown as TRegister;
 
     try {
+
         await registerValidateSchema.validate({
             fullName, 
             username, 
@@ -45,10 +47,14 @@ export default {
         });
 
     } catch(error) {
+
         const err = error as unknown as Error;
+
         res.status(400).json({
+
             message: err.message,
             data: null
+
         });
     }
 
