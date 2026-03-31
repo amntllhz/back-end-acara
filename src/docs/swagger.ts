@@ -15,7 +15,7 @@ const doc = {
             description: "Local Server",
         },
         {
-            url: "https://backend-acaraa.vercel.app/api",
+            url: "https://back-end-acaraa.vercel.app/api",
             description: "Production Server",
         }
 
