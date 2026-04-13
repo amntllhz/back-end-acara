@@ -32,6 +32,16 @@ const doc = {
                 identifier: "amntllhz",
                 password: "12345678"
             },
+            RegisterRequest: {
+                fullName: "tram",
+                username: "tram",
+                email: "tram@gmail.com",
+                password: "12345678",
+                confirmPassword: "12345678"
+            },
+            ActivationRequest: {
+                code: "abcdef"
+            }
         }
     }
 };
