@@ -19,11 +19,29 @@ type TLogin = {
 }
 
 const registerValidateSchema = Yup.object({
-    fullName: Yup.string().required(),
-    username: Yup.string().required(),
-    email: Yup.string().email().required(),
-    password: Yup.string().required(),
-    confirmPassword: Yup.string().required().oneOf([Yup.ref("password"), ""], "Password does not match") 
+    fullName: Yup.string()
+        .required(),
+    username: Yup.string()
+        .required(),
+    email: Yup.string()
+        .email()
+        .required(),
+    password: Yup.string()
+        .required()
+        .min(8, "Password must be at least 8 characters")
+        .test(
+            "at-least-one-uppercase", 
+            "Password must contain at least one uppercase letter", 
+            (value) => /[A-Z]/.test(value)
+        )
+        .test(
+            "at-least-one-number", 
+            "Password must contain at least one number", 
+            (value) => /[0-9]/.test(value)
+        ),
+    confirmPassword: Yup.string()
+        .required()
+        .oneOf([Yup.ref("password"), ""], "Password does not match") 
 })
 
 export default {
