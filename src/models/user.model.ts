@@ -49,6 +49,9 @@ const UserSchema = new Schema<User>(
         isActive: {
             type: Schema.Types.Boolean,
             default: false
+        },
+        activationCode: {
+            type: Schema.Types.String,            
         }
     },
     {
@@ -102,6 +105,7 @@ UserSchema.post("save", async function (doc, next) {
 UserSchema.methods.toJSON = function () {
     const user = this.toObject();
     delete user.password;
+    delete user.activationCode;
     return user;
 };
 
