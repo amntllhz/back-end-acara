@@ -80,6 +80,15 @@ export default {
 
         const err = error as unknown as Error;
 
+        // Cek apakah error dari Yup
+        if (error instanceof Yup.ValidationError) {
+            return res.status(400).json({
+                message: err.message,
+                data: null,
+                field: error.path 
+            });
+        }
+
         res.status(400).json({
 
             message: err.message,
