@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { encrypt } from "../utils/encryption";
 import { sendMail, renderMailHtml } from "../utils/mail/mail"
 import { CLIENT_HOST, EMAIL_SMTP_USER } from "../utils/env";
+import { ROLES } from "../utils/constant";
 
 
 export interface User {
@@ -13,12 +14,12 @@ export interface User {
     profilePicture: string;
     isActive: boolean;
     activationCode: string;
-    createdAt?: string;    
+    createdAt?: string;
 }
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema<User>(   
+const UserSchema = new Schema<User>(
     {
         fullName: {
             type: Schema.Types.String,
@@ -40,7 +41,8 @@ const UserSchema = new Schema<User>(
         },
         role: {
             type: Schema.Types.String,
-            default: "user"
+            enum: [ROLES.ADMIN, ROLES.MEMBER],
+            default: ROLES.MEMBER
         },
         profilePicture: {
             type: Schema.Types.String,
@@ -51,7 +53,7 @@ const UserSchema = new Schema<User>(
             default: false
         },
         activationCode: {
-            type: Schema.Types.String,            
+            type: Schema.Types.String,
         }
     },
     {
@@ -99,7 +101,7 @@ UserSchema.post("save", async function (doc, next) {
         next();
 
     }
-    
+
 });
 
 UserSchema.methods.toJSON = function () {
