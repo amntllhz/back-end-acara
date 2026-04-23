@@ -17,3 +17,9 @@ export interface IUserToken extends Omit<User,
 > {
     id?: Types.ObjectId
 }
+
+export interface IPaginationQuery {
+    page: number;
+    limit: number;
+    search?: string;
+}
