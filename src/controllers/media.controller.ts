@@ -1,49 +1,31 @@
 import { Response } from "express"
 import { IReqUser } from "../utils/interface"
 import uploader from "../utils/uploader"
+import response from "../utils/response"
 
 export default {
     async single(req: IReqUser, res: Response) {
         if (!req.file) {
-            return res.status(400).json({
-                message: "File is required",
-                data: null
-            })
+            return response.error(res, null, "File is required");
         }
 
         try {
             const result = await uploader.uploadSingle(req.file as Express.Multer.File);
-            return res.status(200).json({
-                message: "Upload single success",
-                data: result
-            })
+            response.success(res, result, "Successfully upload a file");
         } catch (error) {
-            console.log(error);
-            return res.status(500).json({
-                message: "Failed upload a file",
-                data: null
-            })
+            response.error(res, null, "Failed upload a file");
         }
     },
     async multiple(req: IReqUser, res: Response) {
         if (!req.files || req.files.length === 0) {
-            return res.status(400).json({
-                message: "Files are not exists",
-                data: null
-            })
+            return response.error(res, null, "Files are not exists");
         }
 
         try {
             const result = await uploader.uploadMultiple(req.files as Express.Multer.File[]);
-            return res.status(200).json({
-                message: "Success upload files",
-                data: result
-            })
-        } catch {
-            return res.status(500).json({
-                message: "Failed upload files",
-                data: null
-            })
+            response.success(res, result, "Success upload multiple files");
+        } catch (error) {
+            response.error(res, null, "Failed upload multiple files");
         }
     },
     async remove(req: IReqUser, res: Response) {
@@ -51,15 +33,9 @@ export default {
             const { fileUrl } = req.body;
             const result = await uploader.remove(fileUrl);
 
-            res.status(200).json({
-                data: result,
-                message: "Success remove file",
-            })
-        } catch {
-            res.status(500).json({
-                data: null,
-                message: "Failed remove file",
-            })
+            response.success(res, result, "Success remove file");
+        } catch (error) {
+            response.error(res, null, "Failed remove file");
         }
     }
 }
