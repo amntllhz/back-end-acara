@@ -1,131 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Datang di Acara</title>
     <style>
         /* Reset dasar untuk berbagai klien email (Gmail, Outlook, dll) */
-        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: #F3F4F6; 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
-        
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F3F4F6;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
         /* Container Utama */
-        .wrapper { width: 100%; background-color: #F3F4F6; padding: 40px 0; }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            background-color: #FFFFFF; 
-            border-radius: 8px; 
-            overflow: hidden;             
+        .wrapper {
+            width: 100%;
+            background-color: #F3F4F6;
+            padding: 40px 0;
         }
-        
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         /* Header */
-        .header { 
-            background-color: #F31260; /* Warna utama startup (Indigo) */
-            padding: 30px 20px; 
-            text-align: center; 
+        .header {
+            background-color: #F31260;
+            /* Warna utama startup (Indigo) */
+            padding: 30px 20px;
+            text-align: center;
         }
-        .header h1 { 
-            margin: 0; 
-            color: #FFFFFF; 
-            font-size: 24px; 
-            font-weight: 600; 
-            letter-spacing: 0.5px; 
+
+        .header h1 {
+            margin: 0;
+            color: #FFFFFF;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
-        
+
         /* Content Body */
-        .content { 
-            padding: 40px 30px; 
-            color: #374151; 
-            line-height: 1.6; 
-            font-size: 16px; 
+        .content {
+            padding: 40px 30px;
+            color: #374151;
+            line-height: 1.6;
+            font-size: 16px;
         }
-        .content p { margin: 0 0 16px 0; }
-        
+
+        .content p {
+            margin: 0 0 16px 0;
+        }
+
         /* List Informasi Akun */
-        .content ul { 
-            background-color: #F9FAFB; 
-            padding: 20px; 
-            border-radius: 6px; 
-            border: 1px solid #E5E7EB; 
-            list-style-type: none; 
-            margin: 25px 0; 
+        .content ul {
+            background-color: #F9FAFB;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+            list-style-type: none;
+            margin: 25px 0;
         }
-        .content ul li { 
-            margin-bottom: 12px; 
-            font-size: 15px; 
+
+        .content ul li {
+            margin-bottom: 12px;
+            font-size: 15px;
             color: #4B5563;
         }
-        .content ul li:last-child { margin-bottom: 0; }
-        .content strong { color: #111827; }
-        
+
+        .content ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .content strong {
+            color: #111827;
+        }
+
         /* Tombol Call to Action (CTA) */
-        .button-container { 
-            text-align: center; 
-            margin: 35px 0; 
+        .button-container {
+            text-align: center;
+            margin: 35px 0;
         }
-        .button { 
-            display: inline-block; 
-            background-color: #F31260;             
-            text-decoration: none; 
-            padding: 14px 32px; 
-            border-radius: 6px; 
-            font-weight: 600; 
-            font-size: 16px; 
+
+        .button {
+            display: inline-block;
+            background-color: #F31260;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
         }
-        
+
         /* Footer */
-        .footer { 
-            background-color: #F9FAFB; 
-            padding: 24px; 
-            text-align: center; 
-            border-top: 1px solid #E5E7EB; 
+        .footer {
+            background-color: #F9FAFB;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #E5E7EB;
         }
-        .footer p { 
-            margin: 0; 
-            color: #6B7280; 
-            font-size: 13px; 
+
+        .footer p {
+            margin: 0;
+            color: #6B7280;
+            font-size: 13px;
         }
-        
+
         /* Responsif untuk Layar HP */
         @media screen and (max-width: 600px) {
-            .container { 
-                width: 100% !important; 
-                border-radius: 0; 
+            .container {
+                width: 100% !important;
+                border-radius: 0;
             }
-            .content { padding: 25px 20px; }
-            .wrapper { padding: 0; }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .wrapper {
+                padding: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="container">
             <div class="header">
-                <h1>Selamat Datang di Acara! 🎉</h1>
+                <h1>Selamat Datang di Acara</h1>
             </div>
             <div class="content">
-                <p>Halo <strong><%= username %></strong>,</p>
-                <p>Terima kasih telah mendaftar di Management Acara. Kami sangat senang menyambut Anda! Berikut adalah detail informasi dari akun Anda:</p>
-                
+                <p>Halo <strong>
+                        <%= username %>
+                    </strong>,</p>
+                <p>Terima kasih telah mendaftar di Management Acara. Kami sangat senang menyambut Anda! Berikut adalah
+                    detail informasi dari akun Anda:</p>
+
                 <ul>
-                    <li><strong>Nama Lengkap :</strong> <%= fullName %></li>            
-                    <li><strong>Email :</strong> <%= email %></li>  
-                    <li><strong>Tanggal Pendaftaran :</strong> <%= createdAt %></li>                              
+                    <li><strong>Nama Lengkap :</strong>
+                        <%= fullName %>
+                    </li>
+                    <li><strong>Email :</strong>
+                        <%= email %>
+                    </li>
+                    <li><strong>Tanggal Pendaftaran :</strong>
+                        <%= createdAt %>
+                    </li>
                 </ul>
 
-                <p>Untuk mulai mengeksplorasi dan menggunakan fitur Management Acara, silakan aktifkan akun Anda melalui tautan di bawah ini:</p>
-                
+                <p>Untuk mulai mengeksplorasi dan menggunakan fitur Management Acara, silakan aktifkan akun Anda melalui
+                    tautan di bawah ini:</p>
+
                 <div class="button-container">
-                    <a href="<%= activationLink %>" class="button" style="color: #FFFFFF !important;">Aktifkan Akun Saya</a>
+                    <a href="<%= activationLink %>" class="button" style="color: #FFFFFF !important;">Aktifkan Akun
+                        Saya</a>
                 </div>
-                
-                <p>Jika Anda memiliki pertanyaan lebih lanjut atau butuh bantuan, silakan balas email ini. Kami siap membantu.</p>
+
+                <p>Jika Anda memiliki pertanyaan lebih lanjut atau butuh bantuan, silakan balas email ini. Kami siap
+                    membantu.</p>
                 <p>Salam Hangat,<br><strong>Tim Acara</strong></p>
             </div>
             <div class="footer">
@@ -134,4 +180,5 @@
         </div>
     </div>
 </body>
+
 </html>
