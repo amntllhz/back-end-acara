@@ -19,12 +19,12 @@ const doc = {
             description: "Production Server",
         }
 
-    ],    
+    ],
     components: {
         securitySchemes: {
             bearerAuth: {
                 type: "http",
-                scheme: "bearer",                
+                scheme: "bearer",
             },
         },
         schemas: {
@@ -41,6 +41,28 @@ const doc = {
             },
             ActivationRequest: {
                 code: "abcdef"
+            },
+            CreatecategoryRequest: {
+                name: "",
+                description: "",
+                icon: ""
+            },
+            CreateEventRequest: {
+                name: "",
+                banner: "FileUrl",
+                category: "Category ObjectID",
+                description: "Acara - Description",
+                startDate: "yyyy-mm-dd HH:mm:ss",
+                endDate: "yyyy-mm-dd HH:mm:ss",
+                location: {
+                    region: "Region ID",
+                    coordinates: [0, 0]
+                },
+                isOnline: false,
+                isFeatured: false
+            },
+            RemoveMediaRequest: {
+                fileUrl: "url_media"
             }
         }
     }
