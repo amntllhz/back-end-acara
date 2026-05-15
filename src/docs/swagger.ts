@@ -42,7 +42,7 @@ const doc = {
             ActivationRequest: {
                 code: "abcdef"
             },
-            CreatecategoryRequest: {
+            CreateCategoryRequest: {
                 name: "",
                 description: "",
                 icon: ""
